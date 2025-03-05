@@ -1,0 +1,11 @@
+package com.restfulservices.springweb.rest_launcher1.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class GreetingsController {
+	
+	// It is not mandatory to have return type as ResponseEntity but it is recommended which we I mentioned upcoming projects 
+	public ResponseEntity<>
+
+}

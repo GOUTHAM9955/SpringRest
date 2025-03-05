@@ -1,0 +1,5 @@
+package com.restfulservices.springweb.rest_launcher1.controller;
+
+public class GreetingsController {
+
+}

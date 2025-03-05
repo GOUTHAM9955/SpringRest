@@ -1,0 +1,2 @@
+spring.application.name=rest-launcher1
+server.servlet.context-path=/rest-launcher1

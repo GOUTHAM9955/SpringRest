@@ -1,0 +1,11 @@
+package com.restfulservices.springweb.rest_launcher1.service;
+
+public class GreetingService implements IGreetingService {
+
+	@Override
+	public String generatWishes(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
