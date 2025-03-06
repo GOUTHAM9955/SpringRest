@@ -31,6 +31,9 @@ public class StudentModel {
 		this.sName = sName;
 		this.sEmail = sEmail;
 	}
+	public StudentModel() {
+		super();
+	}
 
 	@Override
 	public String toString() {

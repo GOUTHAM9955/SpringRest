@@ -2,8 +2,10 @@ package com.launch.jacksonapi;
 
 import java.util.Arrays;
 import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /*
@@ -16,10 +18,16 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * 
  */
 
+/*
+ * Spring will internally implement this jackson API and it will use @JsonIgnoreProperties annotations too when we apply @RequestBody to the mapping method
+ */
+
+// If the JSON file has any unknown fields that doesn't match with the model class adding this annotation will ignore those fields
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class LaunchApp {
 	
 	
-	public static void main(String[] args) throws JsonProcessingException {
+	public static void main(String[] args) throws IOException {
 		
 		StudentModel student = new StudentModel(1, "GK", "gk1@gmail.com");
 		
@@ -39,7 +47,9 @@ public class LaunchApp {
 		System.out.println(json);
 		
 		
-		
+		// Below we are reading JSON file and converting it to Java obejct
+		StudentModel student4 = mapper.readValue(new File("json/sudentModel.json"), StudentModel.class);
+		System.out.println(student4);
 		
 	}
 
