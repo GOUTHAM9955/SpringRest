@@ -10,4 +10,8 @@ public interface ITouristService {
 	public Tourist touristById(Integer id) throws TouristNotFoundException;
 	public List<Tourist> fetchTourists();
 	
+	public String updateTourist(Tourist tourist);
+	public String updateTouristBudget(Integer id, Double budget);
+	public String deleteById(Integer id);
+	
 }

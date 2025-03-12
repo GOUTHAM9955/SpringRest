@@ -20,7 +20,7 @@ public class TouristService implements ITouristService {
 	public String registerTourist(Tourist tourist) {
 		return "Sucessfully registered with tourist Id" + touristRepo.save(tourist).getId();
 	}
-
+ 
 	@Override
 	public Tourist touristById(Integer id) throws TouristNotFoundException {
 		
@@ -46,5 +46,43 @@ public class TouristService implements ITouristService {
 		// TODO Auto-generated method stub
 		return touristRepo.findAll();
 	}
+	
+	@Override
+	public String updateTourist(Tourist tourist) {
+		Optional<Tourist> record = touristRepo.findById(tourist.getId());
+		if(record.isPresent()) {
+			touristRepo.save(tourist);
+			return "Tourist sucessfully registered";
+	}
+		else {
+			throw new TouristNotFoundException("There isn't any tourist by this ID");
+		}
+}
 
+	@Override
+	public String updateTouristBudget(Integer id, Double budget) {
+		
+		Optional<Tourist> record = touristRepo.findById(id);
+		if(record.isPresent()) {
+			record.get().setBudget(budget);
+			touristRepo.save(record.get());
+			return "Budget sucessfully updated";
+	}
+		else {
+			throw new TouristNotFoundException("There isn't any tourist by this ID");
+		}
+	}
+
+	@Override
+	public String deleteById(Integer id) {
+		Optional<Tourist> record = touristRepo.findById(id);
+		if(record.isPresent()) {
+			touristRepo.deleteById(id);
+			return "Record sucessfully deleted";
+	}
+		else {
+			throw new TouristNotFoundException("There isn't any tourist by this ID");
+		}
+	}
+	
 }
